@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wcmei.generator.mapper.TbBaseUserMapper">
+  <resultMap id="BaseResultMap" type="com.wcmei.generator.domain.TbBaseUser">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="created" jdbcType="VARCHAR" property="created" />
+    <result column="updated" jdbcType="VARCHAR" property="updated" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="is_use" jdbcType="VARCHAR" property="isUse" />
+    <result column="check_status" jdbcType="VARCHAR" property="checkStatus" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="user_account" jdbcType="VARCHAR" property="userAccount" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="business_name" jdbcType="VARCHAR" property="businessName" />
+    <result column="divide_prorata" jdbcType="VARCHAR" property="divideProrata" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="auth_token" jdbcType="VARCHAR" property="authToken" />
+    <result column="sub_mer_id" jdbcType="VARCHAR" property="subMerId" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="user_dic" jdbcType="VARCHAR" property="userDic" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, created, updated, addr, email, is_use, check_status, parent_id, password, phone, 
+    real_name, sex, user_account, role_id, business_name, divide_prorata, create_by, 
+    auth_token, sub_mer_id, category, province, city, user_dic
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_base_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_base_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wcmei.generator.domain.TbBaseUser">
+    insert into tb_base_user (id, created, updated, 
+      addr, email, is_use, 
+      check_status, parent_id, password, 
+      phone, real_name, sex, 
+      user_account, role_id, business_name, 
+      divide_prorata, create_by, auth_token, 
+      sub_mer_id, category, province, 
+      city, user_dic)
+    values (#{id,jdbcType=BIGINT}, #{created,jdbcType=VARCHAR}, #{updated,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{isUse,jdbcType=VARCHAR}, 
+      #{checkStatus,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{userAccount,jdbcType=VARCHAR}, #{roleId,jdbcType=BIGINT}, #{businessName,jdbcType=VARCHAR}, 
+      #{divideProrata,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}, #{authToken,jdbcType=VARCHAR}, 
+      #{subMerId,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{userDic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wcmei.generator.domain.TbBaseUser">
+    insert into tb_base_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+      <if test="addr != null">
+        addr,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="isUse != null">
+        is_use,
+      </if>
+      <if test="checkStatus != null">
+        check_status,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="userAccount != null">
+        user_account,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="businessName != null">
+        business_name,
+      </if>
+      <if test="divideProrata != null">
+        divide_prorata,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="authToken != null">
+        auth_token,
+      </if>
+      <if test="subMerId != null">
+        sub_mer_id,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="userDic != null">
+        user_dic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isUse != null">
+        #{isUse,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null">
+        #{checkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccount != null">
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="businessName != null">
+        #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="divideProrata != null">
+        #{divideProrata,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="authToken != null">
+        #{authToken,jdbcType=VARCHAR},
+      </if>
+      <if test="subMerId != null">
+        #{subMerId,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="userDic != null">
+        #{userDic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wcmei.generator.domain.TbBaseUser">
+    update tb_base_user
+    <set>
+      <if test="created != null">
+        created = #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isUse != null">
+        is_use = #{isUse,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null">
+        check_status = #{checkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccount != null">
+        user_account = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="businessName != null">
+        business_name = #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="divideProrata != null">
+        divide_prorata = #{divideProrata,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="authToken != null">
+        auth_token = #{authToken,jdbcType=VARCHAR},
+      </if>
+      <if test="subMerId != null">
+        sub_mer_id = #{subMerId,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="userDic != null">
+        user_dic = #{userDic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wcmei.generator.domain.TbBaseUser">
+    update tb_base_user
+    set created = #{created,jdbcType=VARCHAR},
+      updated = #{updated,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      is_use = #{isUse,jdbcType=VARCHAR},
+      check_status = #{checkStatus,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      user_account = #{userAccount,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=BIGINT},
+      business_name = #{businessName,jdbcType=VARCHAR},
+      divide_prorata = #{divideProrata,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=BIGINT},
+      auth_token = #{authToken,jdbcType=VARCHAR},
+      sub_mer_id = #{subMerId,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      user_dic = #{userDic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
